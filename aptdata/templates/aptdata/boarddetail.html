@@ -1,0 +1,10 @@
+{% extends 'aptdata/base.html'%}
+{%block body%}
+
+<h1>The board detail for  {{aptboards.board_code}}</h1><br>
+        It is located in area {{aptboards.board_location}} <br>
+
+<img style="width: 150px" src="{{aptboards.board_pic.url}}">
+<br><br>
+<a href="/aptdata/board/{{aptboards.apt_code_id}}"><button>Back</button></a>
+{%endblock%}

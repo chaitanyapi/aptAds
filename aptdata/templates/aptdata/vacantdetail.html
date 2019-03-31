@@ -1,0 +1,36 @@
+<!-- loads the staticfiles-->
+{% extends 'aptdata/base.html'%}
+{%block body%}
+	{%if object_list %}
+		<ul>
+			<h3>These are the apartments along with their vacant boards</h3>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+</style>
+			<table>
+				<tr bgcolor="aqua">
+					<td>Apartment Code</td><td>Vacant Board Count</td>
+				</tr>
+				{%for emp in object_list%}
+				  <tr>
+					<td>{{emp.apt_code}}</td><td>{{emp.Vcount}}</td>
+				  </tr>
+				{%endfor%}
+			</table><br>
+
+		</ul>
+	{% else %}
+		<h3>no data</h3>
+		<a href="{% url 'aptdata:addemp'%}"><button type="button">Add Employee</button></a>
+	{%endif%}
+{%endblock%}

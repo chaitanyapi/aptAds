@@ -1,0 +1,17 @@
+{% extends 'aptdata/base.html'%}
+{%block body%}
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<br><br>
+        <table>
+        <tr><td><b>Campaign ID</b> </td><td>{{campaign_details.campaign_id}}</td></tr>
+        <tr><td><b>Start date </b></td><td>{{campaign_details.start_date}} </td></tr>
+        <tr><td><b>End date</b></td><td>{{campaign_details.end_date}}</td></tr>
+        </table>
+<br>
+
+
+{%endblock%}

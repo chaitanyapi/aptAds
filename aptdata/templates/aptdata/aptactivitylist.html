@@ -1,0 +1,24 @@
+<!-- loads the staticfiles-->
+{% extends 'aptdata/base.html'%}
+{%block body%}
+	{%if object_list %}
+		<ul>
+            <a href="/aptdata/activity/add/{{val}}"><button type="button">Add Activity</button></a>
+            <h3>These are the activities for the apartment with the code <b>{{variable}}</b>.</h3>
+			{%for emp in object_list%}
+			<li><a href="/aptdata/activity/detail/{{emp.id}}/">
+				{{emp.apt_code_id}} is the code and location is {{emp.board_location}}</a>
+				<a href="/aptdata/activity/update/{{emp.id}}/"><button type="button">Edit</button></a>
+			</li>
+			{%endfor%}
+			<a href="/aptdata/{{val}}/"><button type="button">Back</button></a>
+
+		</ul>
+	{% else %}
+		<a href="/aptdata/activity/add/{{val}}"><button type="button">Add Activity</button></a><br>
+
+		<h3>no data</h3>
+
+		<a href="/aptdata/{{val}}/"><button type="button">Back</button></a>
+	{%endif%}
+{%endblock%}

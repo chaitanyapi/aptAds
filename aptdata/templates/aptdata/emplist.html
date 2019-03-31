@@ -1,0 +1,17 @@
+<!-- loads the staticfiles-->
+{% extends 'aptdata/base.html'%}
+{%block body%}
+	{%if object_list %}
+		<ul>
+			<h3>These are the employees in ApdAds. Click on any name to see further details.</h3>
+			{%for emp in object_list%}
+			<li><a href="/aptdata/emp/{{emp.id}}/">
+				<img src="{{Emp.emp_pic.url}}" class="img-responsive">{{emp.emp_name}}</a></li>
+			{%endfor%}<br>
+			<a href="{% url 'aptdata:addemp'%}"><button type="button">Add Employee</button>
+		</ul>
+	{% else %}
+		<h3>no data</h3>
+		<a href="{% url 'aptdata:addemp'%}"><button type="button">Add Employee</button>
+	{%endif%}
+{%endblock%}

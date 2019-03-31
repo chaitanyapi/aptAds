@@ -1,0 +1,14 @@
+{% extends 'aptdata/base.html' %}
+
+{% block body %}
+<h1>Registration page </h1>
+<div class="container">
+<form method="post">
+	{% csrf_token %}
+	{{form.as_p}}
+	<div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-success">Submit</button><br>                                
+    </div>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'aptdata/base.html'%}
+{%block body%}
+
+<h1>The board activity detail</h1><br>
+        board activity page location is {{aptactivity.ad_location}} <br>
+
+<img style="width: 150px" src="{{aptactivity.activity_pic.url}}">
+<br><br>
+<a href="/aptdata/activity/{{aptactivity.apt_code_id}}"><button>Back</button></a>
+{%endblock%}

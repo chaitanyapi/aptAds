@@ -1,0 +1,55 @@
+<!-- loads the staticfiles-->
+{% extends 'aptdata/base.html'%}
+{%block body%}
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+	{%if object_list %}
+		<ul>
+			<a href="{% url 'aptdata:apt-add'%}"><button type="button">Add Apartment</button></a>
+			<a href="{% url 'aptdata:listemp'%}"><button>Employee list</button></a> 
+			<a href="{% url 'aptdata:advtlist'%}"><button>Advertiser list</button></a><br>
+			<h3>These are the list of apartments. Click on any name to see apartment details.</h3>
+<table>
+<tr style="background-color:green"><td>Apartment Name</td><td>Apartment Code</td><td>Area</td><td>Number of Flats</td><td>Contact Person</td><td>Contact Number</td></tr>
+                        {%for apt in object_list%}
+                                <!--<img src="{{apt.apt_pic}}">-->
+                        <tr><td><a href="/aptdata/{{apt.id}}/">
+                                <b>{{apt.aptname}}</b></a></td>
+                        <td>{{apt.apt_code}}</td><td>{{apt.get_area_display}}</td><td>{{apt.no_of_flats}}</td>
+                        <td>{{apt.primary_contact}}</td><td>{{apt.primary_contact_number}}</td>
+                        </tr>
+
+                        {%endfor%}
+</table>
+		</ul>
+	{% else %}
+	{% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+		<a href="{% url 'aptdata:apt-add'%}"><button type="button">Add Apartment</button></a>
+		<a href="{% url 'aptdata:listemp'%}"><button>Employee list</button></a> <br>
+<br>
+		<h3>no data</h3>
+	{%endif%}
+{%endblock%}

@@ -1,0 +1,27 @@
+{%extends 'aptdata/base.html'%}
+{%block title%} Register {%endblock%}
+
+{%block body%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Login Details</h3>
+                    <form class="form-horiontal" action="" method="post" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        {%include 'aptdata/login.html'%}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button><br>                                
+                            </div>
+                        </div>
+                    </form>
+<p>new user? Please Register using the below link</p>
+                                <a href="/aptdata/register/"><button type="submit" class="btn btn-success">Register</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,24 @@
+<!-- loads the staticfiles-->
+{% extends 'aptdata/base.html'%}
+{%block body%}
+	{%if object_list %}
+		<ul>
+            <a href="/aptdata/board/add/{{val}}"><button type="button">Add Board</button></a>
+            <h3>These are the boards for the apartment <b>{{variable}}</b>.</h3>
+			{%for emp in object_list%}
+			<li><br><a href="/aptdata/board/detail/{{emp.id}}/">
+                <img style="width: 150px" src="{{emp.board_pic.url}}"><br></a>
+				Board located in area : {{emp.board_location}}<br>
+                Board status is : {{emp.board_status}}<br>
+				<a href="/aptdata/board/update/{{emp.id}}/"><button type="button">Edit</button></a><br>
+			</li>
+			{%endfor%}<br>
+			<a href="/aptdata/{{val}}/"><button type="button">Back</button></a>
+
+		</ul>
+	{% else %}
+		<h3>no data</h3>
+        <a href="/aptdata/board/add/{{val}}"><button type="button">Add Board</button></a><br><br>
+		<a href="/aptdata/{{val}}/"><button type="button">Back</button></a>
+	{%endif%}
+{%endblock%}

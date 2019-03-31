@@ -1,0 +1,26 @@
+{% extends 'aptdata/base.html'%}
+{%block body%}
+<img style="width: 150px" src="{{aptinfo.apt_pic.url}}">
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<br><br>
+        <table>
+        <tr><td><b>Apartment Name </b> </td><td>{{aptinfo.aptname}}</td></tr>
+        <tr><td><b>Area </b></td><td>{{aptinfo.area}} </td></tr>
+        <tr><td><b>Apartment Code </b></td><td>{{aptinfo.apt_code}}</td></tr>
+        <tr><td><b>Contact Name </b> </td><td>{{aptinfo.primary_contact}}</td></tr>
+        <tr><td><b>Contact Number </b> </td><td> {{aptinfo.primary_contact_number}}</td></tr>
+        <tr><td><b>Number of Flats </b>  </td><td>{{aptinfo.no_of_flats}}</td></tr>
+        <tr><td><b>Call back time  </b> </td><td> {{aptinfo.sales_remainder_date}}  {{aptinfo.sales_remainder_time}}</td></tr>
+        <tr><td><b>vacant Boards</b></td><td>{{apt_status_list}}</td></tr>
+                </table>
+<br>
+<a href="/aptdata/board/{{aptinfo.id}}"><button type="button">Related Boards</button></a>
+<a href="/aptdata/aptdata/{{aptinfo.id}}/"><button type="button">Edit</button> </a>
+<a href="/aptdata/"><button type="button">Home</button> </a><br><br>
+<a href="/aptdata/activity/{{aptinfo.id}}"><button type="button">Apartment Activity</button> </a><br>
+
+{%endblock%}

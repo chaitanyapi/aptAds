@@ -1,0 +1,10 @@
+{% extends 'aptdata/base.html'%}
+{%block body%}
+<img src="{{emp.emp_pic.url}}">
+
+The employee name is <b>{{emp.emp_name}}</b><br>
+        Employee type is {{emp.emp_type}} <br>
+        Employee joining date is {{emp.emp_join_date}}<br>
+<a href="/aptdata/emp/update/{{emp.id}}/"><button type="button">Edit</button> </a>
+<a href="/aptdata/emp/"><button type="button">Employee List</button> </a><br>
+{%endblock%}

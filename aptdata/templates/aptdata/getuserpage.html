@@ -1,0 +1,23 @@
+{% extends 'aptdata/base.html'%}
+{%block body%}
+	{%if object_list %}
+		<ul>
+            <a href="/aptdata/board/add/{{val}}"><button type="button">Add Board</button></a>
+            <h3>Welcome {{username}} <b></b>.</h3>
+			{%for emp in object_list%}
+			<li>
+				Board located in area <br>
+                Board status is :<br>
+				
+			</li>
+			{%endfor%}<br>
+			<a href="/aptdata"><button type="button">Back</button></a>
+
+		</ul>
+	{% else %}
+		<h3>Welcome {{ username}}</h3>
+		<h1>It seems there are no activities in your queue</h1>
+        <a href="/aptdata/board/add"><button type="button">Add Board</button></a><br><br>
+		<a href="/aptdata/"><button type="button">Back</button></a>
+	{%endif%}
+{%endblock%}

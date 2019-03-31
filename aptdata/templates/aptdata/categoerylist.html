@@ -1,0 +1,24 @@
+<!-- loads the staticfiles-->
+{% extends 'aptdata/base.html'%}
+{%block body%}
+		<ul>
+            <a href="/aptdata/advt/add/cat/{{val}}"><button type="button">Add Categoery</button></a>
+            <<h3> List of products with us are</h3>
+            <table>
+                <tr>
+                    <td><b>Product Name</b></td><td><b>Product Categoery</b></td>
+                </tr>
+			{%for emp in object_list%}
+                <tr>
+                    <td><a href="/aptdata/advt/{{emp.id}}">{{emp.product_name}}</a></td><td>{{emp.product_categoery}}</td>
+
+                </tr>
+			{%endfor%}
+                </table>
+				<a href="/aptdata/activity/update/{{emp.id}}/"><button type="button">Edit</button></a>
+			</li>
+
+			<a href="/aptdata/{{val}}/"><button type="button">Back</button></a>
+
+		</ul>
+{%endblock%}

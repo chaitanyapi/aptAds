@@ -1,0 +1,32 @@
+<!-- loads the staticfiles-->
+{% extends 'aptdata/base.html'%}
+{%block body%}
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+	{%if object_list %}
+		<ul>
+            <a href="/aptdata/advt/add/"><button type="button">Add Advertiser</button></a>
+            <h3>These are the list of Advertisers listed with us <b>{{variable}}</b>.</h3>
+            <table>
+                <tr>
+                    <td><b>Client Name</b></td><td><b>Contact person</b></td>
+                </tr>
+			{%for emp in object_list%}
+                <tr>
+                    <td><a href="/aptdata/advt/{{emp.id}}">{{emp.client_name}}</a></td><td>{{emp.contact_person}}</td>
+
+                </tr>
+			{%endfor%}
+                </table>
+		</ul>
+	{% else %}
+		<a href="/aptdata/advt/add/"><button type="button">Add Advertiser</button></a><br>
+
+		<h3>no data</h3>
+
+		<a href="/aptdata/{{val}}/"><button type="button">Back</button></a>
+	{%endif%}
+{%endblock%}

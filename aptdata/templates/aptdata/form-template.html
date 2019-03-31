@@ -1,0 +1,21 @@
+<style type="text/css">
+    span.required:after { content: '*'; }
+</style>
+<table>
+{% for field in form %}
+    <tr>
+            <span class="text-danger small">{{field.errors}}</span>
+        <label class="control-label col-sm-2">
+            <td>
+            {% if field.field.required %}
+        <span class="required">{{ field.label_tag }}</span>
+        {% else %}
+        {{ field.label_tag }}
+        {% endif %}
+            </td><td>
+        </label>
+        <div class="col-sm-10">{{ field }}</div>
+    </td>
+        </tr>
+{%endfor%}
+</table>
